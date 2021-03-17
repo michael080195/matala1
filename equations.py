@@ -18,39 +18,49 @@ def hezka(x:float,i:float):
             sum=sum*x
             j=j+1
         return (sum)
+  
+
     
 
-def expo(x:float):
+def exponent(x:float):
     i=1
     sum=0
     while(i<100):
         sum=sum+((hezka(x,i)/atzeret(i)))
         i=i+1
-    return(sum+1)
+    result = float('%0.6f' % sum)
+    return(result+1)
+  
+ 
     
-def ln(x):
+def Ln(x):
     i=0
     sum=0
     while i<1000:
-        sum=sum+ 2*((x-expo(sum))/(x+expo(sum)))   
+        sum=sum+ 2*((x-exponent(sum))/(x+exponent(sum)))   
         i=i+1
-    return(sum)
+    result = float('%0.6f' % sum)
+    return(result)
+  
+   
     
 def XtimesY(x,y):
     if(x<=0):
         return(0)
-    z1=ln(x)
+    z1=Ln(x)
     z2=y*z1
-    result = expo(z2)
-    a = float('%0.6f' % result)
-    return(a)
-
+    a = exponent(z2)
+    result = float('%0.6f' % a)
+    return(result)
+  
 
 def sqrt(y,x):
-    return(XtimesY(y,1/x))
+    return(XtimesY(x,1/y))
     
         
 def calculate(x:float)->float:
-    ex=((expo(x))*(expo(x*ln(7)))*(1/x)*(sqrt(x, x)))
-    ac = float('%0.6f' % ex)
-    return(ac)
+    if(x==0):
+        return(0)
+    ex=((exponent(x))(exponent(x*Ln(7)))(1/x)*(sqrt(x, x)))
+    result = float('%0.6f' % ex)
+    return(result)
